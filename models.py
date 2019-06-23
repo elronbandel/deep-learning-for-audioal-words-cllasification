@@ -116,7 +116,7 @@ class Models:
                               nn.LogSoftmax(dim=1)).cuda()
 
         network = ANN("CNN:2XConv2D_Relu-Dropout-FC", model, cuda=True)
-        network.train(train_set, epochs=40, batch_size=10, criterion=nn.NLLLoss(),
+        network.train(train_set, epochs=40, batch_size=200, criterion=nn.NLLLoss(),
                       optimizer=optim.Adam(model.parameters()), valid_set=valid_set)
         return network
 
@@ -126,7 +126,7 @@ class Models:
                               RNN(input_sizes[0], output_size, hidden_size=256, cuda=True))
         network = ANN("MyRNN_H256", model , cuda=True)
         network.train(train_set, epochs=60, batch_size=50, criterion=nn.NLLLoss(),
-                      optimizer=optim.Adam(model.parameters()), valid_set=valid_set)
+                      optimizer=optim.Adam(model.parameters(),lr=0.01), valid_set=valid_set)
         return network
     def RNN_H256(self, data, test_set = None):
         input_sizes, output_size, train_set, valid_set = data

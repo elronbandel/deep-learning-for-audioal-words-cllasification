@@ -1,67 +1,29 @@
 __________________________________________________________________________
-                     Trainning <LSTM_H256>
+                     Training <LSTM_H512_FC256>
 __________________________________________________________________________
-EPOCH 1/60 | Duaration: 109.8s | Loss: 2.561 | Fitting: 0.476| Accuracy: 0.469
-EPOCH 2/60 | Duaration: 109.8s | Loss: 1.310 | Fitting: 0.720| Accuracy: 0.701
-EPOCH 3/60 | Duaration: 110.9s | Loss: 0.742 | Fitting: 0.844| Accuracy: 0.810
-EPOCH 4/60 | Duaration: 111.5s | Loss: 0.514 | Fitting: 0.879| Accuracy: 0.840
-EPOCH 5/60 | Duaration: 110.8s | Loss: 0.399 | Fitting: 0.904| Accuracy: 0.862
-EPOCH 6/60 | Duaration: 110.5s | Loss: 0.351 | Fitting: 0.920| Accuracy: 0.871
-EPOCH 7/60 | Duaration: 110.3s | Loss: 0.297 | Fitting: 0.929| Accuracy: 0.878
-EPOCH 8/60 | Duaration: 110.3s | Loss: 0.251 | Fitting: 0.944| Accuracy: 0.883
-EPOCH 9/60 | Duaration: 109.2s | Loss: 0.221 | Fitting: 0.944| Accuracy: 0.885
-EPOCH 10/60 | Duaration: 109.9s | Loss: 0.195 | Fitting: 0.944| Accuracy: 0.878
-EPOCH 11/60 | Duaration: 109.5s | Loss: 0.186 | Fitting: 0.953| Accuracy: 0.883
-EPOCH 12/60 | Duaration: 109.3s | Loss: 0.167 | Fitting: 0.952| Accuracy: 0.885
-EPOCH 13/60 | Duaration: 109.9s | Loss: 0.152 | Fitting: 0.959| Accuracy: 0.888
-EPOCH 14/60 | Duaration: 111.1s | Loss: 0.138 | Fitting: 0.964| Accuracy: 0.893
-EPOCH 15/60 | Duaration: 109.6s | Loss: 0.118 | Fitting: 0.968| Accuracy: 0.893
-EPOCH 16/60 | Duaration: 110.6s | Loss: 0.112 | Fitting: 0.976| Accuracy: 0.898
-EPOCH 17/60 | Duaration: 112.1s | Loss: 0.109 | Fitting: 0.974| Accuracy: 0.897
-EPOCH 18/60 | Duaration: 110.2s | Loss: 0.095 | Fitting: 0.979| Accuracy: 0.901
-EPOCH 19/60 | Duaration: 110.2s | Loss: 0.092 | Fitting: 0.980| Accuracy: 0.897
-EPOCH 20/60 | Duaration: 111.3s | Loss: 0.076 | Fitting: 0.981| Accuracy: 0.901
-EPOCH 21/60 | Duaration: 112.1s | Loss: 0.079 | Fitting: 0.978| Accuracy: 0.896
-EPOCH 22/60 | Duaration: 112.3s | Loss: 0.075 | Fitting: 0.976| Accuracy: 0.897
-EPOCH 23/60 | Duaration: 111.4s | Loss: 0.071 | Fitting: 0.982| Accuracy: 0.894
-EPOCH 24/60 | Duaration: 110.7s | Loss: 0.062 | Fitting: 0.984| Accuracy: 0.896
-EPOCH 25/60 | Duaration: 110.0s | Loss: 0.061 | Fitting: 0.984| Accuracy: 0.897
-EPOCH 26/60 | Duaration: 111.2s | Loss: 0.059 | Fitting: 0.986| Accuracy: 0.900
-EPOCH 27/60 | Duaration: 110.4s | Loss: 0.061 | Fitting: 0.982| Accuracy: 0.898
-EPOCH 28/60 | Duaration: 110.5s | Loss: 0.052 | Fitting: 0.986| Accuracy: 0.892
-EPOCH 29/60 | Duaration: 110.5s | Loss: 0.053 | Fitting: 0.981| Accuracy: 0.888
-EPOCH 30/60 | Duaration: 110.5s | Loss: 0.066 | Fitting: 0.989| Accuracy: 0.897
-EPOCH 31/60 | Duaration: 110.1s | Loss: 0.035 | Fitting: 0.993| Accuracy: 0.902
-EPOCH 32/60 | Duaration: 113.2s | Loss: 0.052 | Fitting: 0.981| Accuracy: 0.895
-EPOCH 33/60 | Duaration: 110.6s | Loss: 0.056 | Fitting: 0.989| Accuracy: 0.900
-EPOCH 34/60 | Duaration: 110.9s | Loss: 0.041 | Fitting: 0.990| Accuracy: 0.902
-EPOCH 35/60 | Duaration: 112.5s | Loss: 0.037 | Fitting: 0.990| Accuracy: 0.897
-EPOCH 36/60 | Duaration: 111.1s | Loss: 0.041 | Fitting: 0.991| Accuracy: 0.900
-EPOCH 37/60 | Duaration: 110.9s | Loss: 0.044 | Fitting: 0.988| Accuracy: 0.898
-EPOCH 38/60 | Duaration: 111.3s | Loss: 0.050 | Fitting: 0.986| Accuracy: 0.894
-EPOCH 39/60 | Duaration: 111.8s | Loss: 0.039 | Fitting: 0.992| Accuracy: 0.907
-EPOCH 40/60 | Duaration: 110.1s | Loss: 0.031 | Fitting: 0.992| Accuracy: 0.899
-EPOCH 41/60 | Duaration: 110.7s | Loss: 0.026 | Fitting: 0.996| Accuracy: 0.901
-EPOCH 42/60 | Duaration: 110.9s | Loss: 0.037 | Fitting: 0.989| Accuracy: 0.899
-EPOCH 43/60 | Duaration: 110.0s | Loss: 0.044 | Fitting: 0.987| Accuracy: 0.899
-EPOCH 44/60 | Duaration: 110.0s | Loss: 0.035 | Fitting: 0.992| Accuracy: 0.900
-EPOCH 45/60 | Duaration: 110.4s | Loss: 0.046 | Fitting: 0.990| Accuracy: 0.896
-EPOCH 46/60 | Duaration: 109.5s | Loss: 0.028 | Fitting: 0.994| Accuracy: 0.900
-EPOCH 47/60 | Duaration: 111.0s | Loss: 0.029 | Fitting: 0.995| Accuracy: 0.903
-EPOCH 48/60 | Duaration: 112.9s | Loss: 0.040 | Fitting: 0.992| Accuracy: 0.900
-EPOCH 49/60 | Duaration: 110.7s | Loss: 0.031 | Fitting: 0.993| Accuracy: 0.900
-EPOCH 50/60 | Duaration: 110.7s | Loss: 0.024 | Fitting: 0.996| Accuracy: 0.903
-EPOCH 51/60 | Duaration: 111.1s | Loss: 0.027 | Fitting: 0.994| Accuracy: 0.900
-EPOCH 52/60 | Duaration: 112.3s | Loss: 0.026 | Fitting: 0.991| Accuracy: 0.901
-EPOCH 53/60 | Duaration: 110.9s | Loss: 0.035 | Fitting: 0.991| Accuracy: 0.901
-EPOCH 54/60 | Duaration: 109.7s | Loss: 0.042 | Fitting: 0.991| Accuracy: 0.898
-EPOCH 55/60 | Duaration: 111.9s | Loss: 0.030 | Fitting: 0.994| Accuracy: 0.902
-EPOCH 56/60 | Duaration: 111.5s | Loss: 0.020 | Fitting: 0.995| Accuracy: 0.900
-EPOCH 57/60 | Duaration: 110.5s | Loss: 0.025 | Fitting: 0.992| Accuracy: 0.903
-EPOCH 58/60 | Duaration: 110.7s | Loss: 0.034 | Fitting: 0.989| Accuracy: 0.900
-EPOCH 59/60 | Duaration: 111.5s | Loss: 0.031 | Fitting: 0.992| Accuracy: 0.899
-EPOCH 60/60 | Duaration: 111.9s | Loss: 0.024 | Fitting: 0.994| Accuracy: 0.903
-________________________________________________________________________
-          Training FInished in 110.8m
-________________________________________________________________________
-__________________________________________________________________________
+EPOCH 1/60 | Duration: 219.1s | Loss: 2.473 | Fitting: 0.566| Accuracy: 0.539
+EPOCH 2/60 | Duration: 224.7s | Loss: 1.236 | Fitting: 0.780| Accuracy: 0.758
+EPOCH 3/60 | Duration: 229.0s | Loss: 0.899 | Fitting: 0.836| Accuracy: 0.801
+EPOCH 4/60 | Duration: 227.2s | Loss: 0.733 | Fitting: 0.886| Accuracy: 0.848
+EPOCH 5/60 | Duration: 230.5s | Loss: 0.620 | Fitting: 0.907| Accuracy: 0.867
+EPOCH 6/60 | Duration: 233.5s | Loss: 0.524 | Fitting: 0.907| Accuracy: 0.863
+EPOCH 7/60 | Duration: 230.6s | Loss: 0.491 | Fitting: 0.931| Accuracy: 0.883
+EPOCH 8/60 | Duration: 229.2s | Loss: 0.444 | Fitting: 0.929| Accuracy: 0.882
+EPOCH 9/60 | Duration: 230.9s | Loss: 0.409 | Fitting: 0.937| Accuracy: 0.882
+EPOCH 10/60 | Duration: 230.0s | Loss: 0.392 | Fitting: 0.938| Accuracy: 0.893
+EPOCH 11/60 | Duration: 231.4s | Loss: 0.361 | Fitting: 0.947| Accuracy: 0.891
+EPOCH 12/60 | Duration: 229.5s | Loss: 0.342 | Fitting: 0.948| Accuracy: 0.895
+EPOCH 13/60 | Duration: 230.3s | Loss: 0.322 | Fitting: 0.957| Accuracy: 0.907
+EPOCH 14/60 | Duration: 232.4s | Loss: 0.310 | Fitting: 0.959| Accuracy: 0.904
+EPOCH 15/60 | Duration: 230.9s | Loss: 0.299 | Fitting: 0.954| Accuracy: 0.894
+EPOCH 16/60 | Duration: 231.1s | Loss: 0.288 | Fitting: 0.959| Accuracy: 0.905
+EPOCH 17/60 | Duration: 235.6s | Loss: 0.276 | Fitting: 0.961| Accuracy: 0.907
+EPOCH 18/60 | Duration: 229.3s | Loss: 0.258 | Fitting: 0.958| Accuracy: 0.898
+EPOCH 19/60 | Duration: 227.1s | Loss: 0.257 | Fitting: 0.965| Accuracy: 0.907
+EPOCH 20/60 | Duration: 227.4s | Loss: 0.252 | Fitting: 0.961| Accuracy: 0.902
+EPOCH 21/60 | Duration: 236.2s | Loss: 0.247 | Fitting: 0.967| Accuracy: 0.905
+EPOCH 22/60 | Duration: 226.0s | Loss: 0.232 | Fitting: 0.962| Accuracy: 0.908
+EPOCH 23/60 | Duration: 227.9s | Loss: 0.235 | Fitting: 0.968| Accuracy: 0.908
+EPOCH 24/60 | Duration: 233.5s | Loss: 0.220 | Fitting: 0.967| Accuracy: 0.906
+EPOCH 25/60 | Duration: 230.0s | Loss: 0.220 | Fitting: 0.973| Accuracy: 0.908
+EPOCH 26/60 | Duration: 226.0s | Loss: 0.212 | Fitting: 0.975| Accuracy: 0.918

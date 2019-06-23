@@ -91,7 +91,7 @@ class Models:
         return network
     def CNN_4XConv2D_2XFC(self, data, test_set = None):
         input_sizes, output_size, train_set, valid_set = data
-        model = nn.Sequential(nn.BatchNorm2d(),
+        model = nn.Sequential(nn.BatchNorm2d(1),
                               nn.Conv2d(in_channels=1, out_channels=32, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),

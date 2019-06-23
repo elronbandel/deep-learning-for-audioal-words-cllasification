@@ -9,11 +9,11 @@ def flat(x):
     return x.view(x.size()[0], -1)
 def print_train_start(name):
     print("__________________________________________________________________________")
-    print("                     Trainning <" + name + ">")
+    print("                     Training <" + name + ">")
     print("__________________________________________________________________________")
 
 def print_epoch(epoch,epochs, duration, loss, fitting, accuracy ):
-    str = "EPOCH {}/{} | Duaration: {:4.1f}s | Loss: {:4.3f} | Fitting: {:4.3f}".format(epoch,epochs, duration, loss, fitting)
+    str = "EPOCH {}/{} | Duration: {:4.1f}s | Loss: {:4.3f} | Fitting: {:4.3f}".format(epoch,epochs, duration, loss, fitting)
     if accuracy is not None:
         str += "| Accuracy: {:4.3f}".format(accuracy)
     print(str)

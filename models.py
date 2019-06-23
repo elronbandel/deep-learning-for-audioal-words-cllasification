@@ -162,3 +162,22 @@ class Models:
         network.train(train_set, epochs=60, batch_size=50, criterion=nn.NLLLoss(),
                       optimizer=optim.Adam(model.parameters(), weight_decay=1e-6), valid_set=valid_set)
         return network
+    def LSTM_H256(self, data,  test_set = None):
+        input_sizes, output_size, train_set, valid_set = data
+        hidden_layer = 512
+        model = nn.Sequential(Squeeze(),
+                              SwappSampleAxes(),
+                              nn.LSTM(input_sizes[0],hidden_layer, batch_first=True),
+                              LSTM_Out(),
+                              nn.BatchNorm1d(hidden_layer),
+                              nn.Dropout(),
+                              nn.Linear(hidden_layer, 256),
+                              nn.ReLU(),
+                              nn.Dropout(),
+                              nn.Linear(256, output_size),
+                              #nn.BatchNorm1d(output_size),
+                              nn.LogSoftmax(dim=1)).cuda()
+        network = ANN("LSTM_H512_FC256", model , cuda=True)
+        network.train(train_set, epochs=60, batch_size=50, criterion=nn.NLLLoss(),
+                      optimizer=optim.Adam(model.parameters(), weight_decay=1e-6), valid_set=valid_set)
+        return network

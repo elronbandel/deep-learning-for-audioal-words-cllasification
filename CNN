@@ -1,9 +1,20 @@
 __________________________________________________________________________
                      Trainning <CNN:2XConv2D_Relu-Dropout-FC>
 __________________________________________________________________________
-EPOCH 1/40 | Duaration: 228.8s | Loss: 1.698 | Fitting: 0.855| Accuracy: 0.796
-EPOCH 2/40 | Duaration: 234.5s | Loss: 0.613 | Fitting: 0.930| Accuracy: 0.858
-EPOCH 3/40 | Duaration: 234.6s | Loss: 0.412 | Fitting: 0.961| Accuracy: 0.874
-EPOCH 4/40 | Duaration: 235.1s | Loss: 0.307 | Fitting: 0.971| Accuracy: 0.877
-EPOCH 5/40 | Duaration: 231.9s | Loss: 0.240 | Fitting: 0.982| Accuracy: 0.883
-EPOCH 6/40 | Duaration: 241.2s | Loss: 0.197 | Fitting: 0.989| Accuracy: 0.886
+EPOCH 1/40 | Duaration: 149.3s | Loss: 1.759 | Fitting: 0.857| Accuracy: 0.802
+EPOCH 2/40 | Duaration: 151.9s | Loss: 0.646 | Fitting: 0.921| Accuracy: 0.842
+EPOCH 3/40 | Duaration: 150.3s | Loss: 0.421 | Fitting: 0.958| Accuracy: 0.868
+EPOCH 4/40 | Duaration: 151.0s | Loss: 0.320 | Fitting: 0.975| Accuracy: 0.877
+EPOCH 5/40 | Duaration: 147.9s | Loss: 0.249 | Fitting: 0.985| Accuracy: 0.880
+EPOCH 6/40 | Duaration: 149.8s | Loss: 0.199 | Fitting: 0.992| Accuracy: 0.884
+EPOCH 7/40 | Duaration: 149.7s | Loss: 0.172 | Fitting: 0.992| Accuracy: 0.875
+EPOCH 8/40 | Duaration: 149.6s | Loss: 0.143 | Fitting: 0.996| Accuracy: 0.882
+EPOCH 9/40 | Duaration: 148.7s | Loss: 0.130 | Fitting: 0.997| Accuracy: 0.890
+EPOCH 10/40 | Duaration: 148.9s | Loss: 0.114 | Fitting: 0.998| Accuracy: 0.891
+EPOCH 11/40 | Duaration: 148.2s | Loss: 0.105 | Fitting: 0.998| Accuracy: 0.885
+EPOCH 12/40 | Duaration: 149.0s | Loss: 0.096 | Fitting: 0.998| Accuracy: 0.885
+EPOCH 13/40 | Duaration: 148.6s | Loss: 0.089 | Fitting: 0.999| Accuracy: 0.892
+EPOCH 14/40 | Duaration: 148.8s | Loss: 0.080 | Fitting: 0.999| Accuracy: 0.895
+EPOCH 15/40 | Duaration: 148.0s | Loss: 0.080 | Fitting: 0.999| Accuracy: 0.896
+EPOCH 16/40 | Duaration: 148.2s | Loss: 0.071 | Fitting: 0.999| Accuracy: 0.893
+EPOCH 17/40 | Duaration: 147.7s | Loss: 0.070 | Fitting: 1.000| Accuracy: 0.894

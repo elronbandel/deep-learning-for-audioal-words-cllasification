@@ -116,8 +116,8 @@ class Models:
                               nn.LogSoftmax(dim=1)).cuda()
 
         network = ANN("CNN:2XConv2D_Relu-Dropout-FC", model, cuda=True)
-        network.train(train_set, epochs=40, batch_size=200, criterion=nn.NLLLoss(),
-                      optimizer=optim.Adam(model.parameters(), weight_decay=0.1), valid_set=valid_set)
+        network.train(train_set, epochs=40, batch_size=10, criterion=nn.NLLLoss(),
+                      optimizer=optim.Adam(model.parameters()), valid_set=valid_set)
         return network
 
     def MyRNN_H256(self, data, test_set = None):
@@ -147,6 +147,7 @@ class Models:
         hidden_layer = 512
         model = nn.Sequential(Squeeze(),
                               SwappSampleAxes(),
+                              nn.BatchNorm1d(101),
                               nn.LSTM(input_sizes[0],hidden_layer, batch_first=True),
                               LSTM_Out(),
                               nn.BatchNorm1d(hidden_layer),
@@ -158,6 +159,6 @@ class Models:
                               #nn.BatchNorm1d(output_size),
                               nn.LogSoftmax(dim=1)).cuda()
         network = ANN("LSTM_H512_FC256", model , cuda=True)
-        network.train(train_set, epochs=60, batch_size=50, criterion=nn.NLLLoss(),
+        network.train(train_set, epochs=60, batch_size=10, criterion=nn.NLLLoss(),
                       optimizer=optim.Adam(model.parameters(), weight_decay=1e-6), valid_set=valid_set)
         return network

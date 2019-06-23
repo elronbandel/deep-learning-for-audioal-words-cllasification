@@ -109,6 +109,7 @@ class Models:
                               nn.Dropout(p=0.5),
                               nn.MaxPool2d(kernel_size=2),
                               Flatten(),
+                              nn.BatchNorm1d(64 * 25 * 40),
                               nn.Linear(64 * 25 * 40, 512),
                               nn.ReLU(),
                               nn.Dropout(),
@@ -126,7 +127,7 @@ class Models:
         model = nn.Sequential(Squeeze,
                               RNN(input_sizes[0], output_size, hidden_size=256, cuda=True))
         network = ANN("MyRNN_H256", model , cuda=True)
-        network.train(train_set, epochs=60, batch_size=50, criterion=nn.NLLLoss(),
+        network.train(train_set, epochs=60, batch_size=20, criterion=nn.NLLLoss(),
                       optimizer=optim.Adam(model.parameters(),lr=0.01), valid_set=valid_set)
         return network
     def RNN_H256(self, data, test_set = None):

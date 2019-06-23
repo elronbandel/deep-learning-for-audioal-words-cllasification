@@ -94,12 +94,11 @@ class Models:
         model = nn.Sequential(nn.Conv2d(in_channels=1, out_channels=32, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
-                              nn.Dropout2d(),
                               nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
                               nn.MaxPool2d(kernel_size=2),
-                              nn.Dropout2d(),
+                              nn.Dropout2d(p=0.25),
                               nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(32),
                               nn.ReLU(),
@@ -118,7 +117,7 @@ class Models:
 
         network = ANN("CNN:2XConv2D_Relu-Dropout-FC", model, cuda=True)
         network.train(train_set, epochs=40, batch_size=200, criterion=nn.NLLLoss(),
-                      optimizer=optim.Adam(model.parameters()), valid_set=valid_set)
+                      optimizer=optim.Adam(model.parameters(), weight_decay=0.1), valid_set=valid_set)
         return network
 
     def MyRNN_H256(self, data, test_set = None):
@@ -142,25 +141,6 @@ class Models:
         network = ANN("RNN_H256", model , cuda=True)
         network.train(train_set, epochs=60, batch_size=batch_size, criterion=nn.NLLLoss(),
                       optimizer=optim.Adam(model.parameters()), valid_set=valid_set)
-        return network
-    def LSTM_H256(self, data,  test_set = None):
-        input_sizes, output_size, train_set, valid_set = data
-        hidden_layer = 512
-        model = nn.Sequential(Squeeze(),
-                              SwappSampleAxes(),
-                              nn.LSTM(input_sizes[0],hidden_layer, batch_first=True),
-                              LSTM_Out(),
-                              nn.BatchNorm1d(hidden_layer),
-                              nn.Dropout(),
-                              nn.Linear(hidden_layer, 256),
-                              nn.ReLU(),
-                              nn.Dropout(),
-                              nn.Linear(256, output_size),
-                              #nn.BatchNorm1d(output_size),
-                              nn.LogSoftmax(dim=1)).cuda()
-        network = ANN("LSTM_H512_FC256", model , cuda=True)
-        network.train(train_set, epochs=60, batch_size=50, criterion=nn.NLLLoss(),
-                      optimizer=optim.Adam(model.parameters(), weight_decay=1e-6), valid_set=valid_set)
         return network
     def LSTM_H256(self, data,  test_set = None):
         input_sizes, output_size, train_set, valid_set = data

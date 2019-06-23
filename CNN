@@ -1,0 +1,9 @@
+__________________________________________________________________________
+                     Trainning <CNN:2XConv2D_Relu-Dropout-FC>
+__________________________________________________________________________
+EPOCH 1/40 | Duaration: 228.8s | Loss: 1.698 | Fitting: 0.855| Accuracy: 0.796
+EPOCH 2/40 | Duaration: 234.5s | Loss: 0.613 | Fitting: 0.930| Accuracy: 0.858
+EPOCH 3/40 | Duaration: 234.6s | Loss: 0.412 | Fitting: 0.961| Accuracy: 0.874
+EPOCH 4/40 | Duaration: 235.1s | Loss: 0.307 | Fitting: 0.971| Accuracy: 0.877
+EPOCH 5/40 | Duaration: 231.9s | Loss: 0.240 | Fitting: 0.982| Accuracy: 0.883
+EPOCH 6/40 | Duaration: 241.2s | Loss: 0.197 | Fitting: 0.989| Accuracy: 0.886

@@ -91,7 +91,8 @@ class Models:
         return network
     def CNN_4XConv2D_2XFC(self, data, test_set = None):
         input_sizes, output_size, train_set, valid_set = data
-        model = nn.Sequential(nn.Conv2d(in_channels=1, out_channels=32, kernel_size=5, stride=1, padding=2),
+        model = nn.Sequential(nn.BatchNorm1d(input_sizes[1]),
+                              nn.Conv2d(in_channels=1, out_channels=32, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
                               nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, stride=1, padding=2),
@@ -116,7 +117,7 @@ class Models:
                               nn.LogSoftmax(dim=1)).cuda()
 
         network = ANN("CNN:2XConv2D_Relu-Dropout-FC", model, cuda=True)
-        network.train(train_set, epochs=40, batch_size=200, criterion=nn.NLLLoss(),
+        network.train(train_set, epochs=40, batch_size=50, criterion=nn.NLLLoss(),
                       optimizer=optim.Adam(model.parameters()), valid_set=valid_set)
         return network
 
@@ -147,7 +148,7 @@ class Models:
         hidden_layer = 512
         model = nn.Sequential(Squeeze(),
                               SwappSampleAxes(),
-                              nn.BatchNorm1d(101),
+                              nn.BatchNorm1d(input_sizes[1]),
                               nn.LSTM(input_sizes[0],hidden_layer, batch_first=True),
                               LSTM_Out(),
                               nn.BatchNorm1d(hidden_layer),

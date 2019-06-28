@@ -38,14 +38,16 @@ class Models:
         input_size=1
         for dim in input_sizes:
             input_size *= dim
-        hidden_sizes = [64, 64]
+        hidden_sizes = [256, 256, 256]
         model = nn.Sequential(Flatten(),
                               nn.Linear(input_size, hidden_sizes[0]),
                               nn.ReLU(),
                               #nn.Dropout(p = 0.5),
                               nn.Linear(hidden_sizes[0], hidden_sizes[1]),
                               nn.ReLU(),
-                              nn.Linear(hidden_sizes[1], output_size),
+                              nn.Linear(hidden_sizes[1], hidden_sizes[2]),
+                              nn.ReLU(),
+                              nn.Linear(hidden_sizes[2], output_size),
                             nn.LogSoftmax(dim=1)).cuda()
         network = ANN("DNN", model, cuda=True)
         network.train(train_set, epochs=20, batch_size=50, criterion=nn.NLLLoss(),

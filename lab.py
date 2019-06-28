@@ -3,6 +3,7 @@ import torch
 from models import Models
 from torch import nn, optim
 import numpy as np
+from os import listdir
 from ANN import ANN
 import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
@@ -31,6 +32,14 @@ def get_data():
     train_set, valid_set = load()
     input_size, output_size = sizes(valid_set)
     return input_size, output_size, train_set, valid_set
+def test(model):
+    test_set = GCommandLoader('./data/test')
+    files = listdir('./data/test/test')
+    tests = DataLoader(test_set, num_workers=20, pin_memory=True, sampler=None)
+    with open('test_y') as file:
+        for (input, label), name in zip(tests, files):
+            file.write("{}, {}".format(name, int(model.predict(label))))
+
 
 def main():
     models = Models()
@@ -38,6 +47,7 @@ def main():
 
     #train all the models
     models.CNN_LSTM256_FC512(data)
+
 
 
 

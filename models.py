@@ -199,11 +199,11 @@ class Models:
 
     def CNN_LSTM256_FC512(self, data,  test_set = None):
         input_sizes, output_size, train_set, valid_set = data
-        hidden_layer = 64
-        model = nn.Sequential(nn.Conv2d(in_channels=1, out_channels=8, kernel_size=5, stride=1, padding=2),
+        hidden_layer = 512
+        model = nn.Sequential(nn.Conv2d(in_channels=1, out_channels=4, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
-                              nn.Conv2d(in_channels=8, out_channels=8, kernel_size=5, stride=1, padding=2),
+                              nn.Conv2d(in_channels=8, out_channels=4, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
                               CNN_TO_LSTM(),
@@ -218,7 +218,7 @@ class Models:
                               nn.Linear(256, output_size),
                               #nn.BatchNorm1d(output_size),
                               nn.LogSoftmax(dim=1)).cuda()
-        network = ANN("LSTM_H512_FC256", model , cuda=True)
+        network = ANN("CNN_LSTM256_FC512", model , cuda=True)
         network.train(train_set, epochs=60, batch_size=50, criterion=nn.NLLLoss(),
                       optimizer=optim.Adam(model.parameters(), weight_decay=1e-6), valid_set=valid_set)
         return network

@@ -42,11 +42,13 @@ class Models:
         model = nn.Sequential(Flatten(),
                               nn.Linear(input_size, hidden_sizes[0]),
                               nn.ReLU(),
-                              #nn.Dropout(p = 0.5),
+                              nn.BatchNorm1d(),
                               nn.Linear(hidden_sizes[0], hidden_sizes[1]),
                               nn.ReLU(),
+                              nn.BatchNorm1d(),
                               nn.Linear(hidden_sizes[1], hidden_sizes[2]),
                               nn.ReLU(),
+                              nn.BatchNorm1d(),
                               nn.Linear(hidden_sizes[2], output_size),
                             nn.LogSoftmax(dim=1)).cuda()
         network = ANN("DNN", model, cuda=True)

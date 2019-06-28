@@ -33,6 +33,24 @@ class Squeeze(nn.Module):
 
 
 class Models:
+    def DNN(self, data, test_set = None):
+        input_sizes, output_size, train_set, valid_set = data
+        input_size=1
+        for dim in input_sizes:
+            input_size *= dim
+        hidden_sizes = [64, 64]
+        model = nn.Sequential(Flatten(),
+                              nn.Linear(input_size, hidden_sizes[0]),
+                              nn.ReLU(),
+                              #nn.Dropout(p = 0.5),
+                              nn.Linear(hidden_sizes[0], hidden_sizes[1]),
+                              nn.ReLU(),
+                              nn.Linear(hidden_sizes[1], output_size),
+                            nn.LogSoftmax(dim=1)).cuda()
+        network = ANN("DNN", model, cuda=True)
+        network.train(train_set, epochs=20, batch_size=50, criterion=nn.NLLLoss(),
+                      optimizer=optim.Adam(model.parameters()), valid_set=valid_set)
+        return network
     def MLP_256_Relu_Dropout_256_Relu(self, data, test_set = None):
         input_sizes, output_size, train_set, valid_set = data
         input_size=1
@@ -112,14 +130,15 @@ class Models:
                               nn.BatchNorm1d(64 * 25 * 40),
                               nn.Linear(64 * 25 * 40, 512),
                               nn.ReLU(),
+                              nn.BatchNorm1d(512),
                               nn.Dropout(),
                               nn.Linear(512, output_size),
                               #nn.BatchNorm1d(output_size),
                               nn.LogSoftmax(dim=1)).cuda()
 
         network = ANN("CNN:2XConv2D_Relu-Dropout-FC", model, cuda=True)
-        network.train(train_set, epochs=40, batch_size=50, criterion=nn.NLLLoss(),
-                      optimizer=optim.Adam(model.parameters()), valid_set=valid_set)
+        network.train(train_set, epochs=40, batch_size=150, criterion=nn.NLLLoss(),
+                      optimizer=optim.Adam(model.parameters(),lr=0.01), valid_set=valid_set)
         return network
 
     def MyRNN_H256(self, data, test_set = None):

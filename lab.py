@@ -2,9 +2,14 @@ from gcommand_loader import GCommandLoader
 import torch
 from models import Models
 from torch import nn, optim
+import numpy as np
 from ANN import ANN
+import matplotlib.pyplot as plt
 from torch.utils.data import DataLoader
-
+def heatmap2d(arr: np.ndarray):
+    plt.imshow(arr, cmap='viridis')
+    plt.colorbar()
+    plt.show()
 class Flatten(nn.Module):
     def __init__(self):
         super(Flatten, self).__init__()
@@ -18,6 +23,7 @@ def load():
 def sizes(dataset):
     loader = DataLoader(dataset, num_workers=20, pin_memory=True, sampler=None)
     input, label = next(iter(loader))
+    #heatmap2d(input.squeeze().transpose(1,0).numpy())
     input_size = torch.squeeze(input).shape
     output_size = len(loader.dataset.classes)
     return input_size, output_size
@@ -31,15 +37,8 @@ def main():
     data = get_data()
 
     #train all the models
-    #models.CNN_3XConv2D_Relu_Dropout_2XFC(data)
+    models.DNN(data)
 
-    lstm = models.LSTM_H256(data)
-    convnet = models.CNN_2XConv2D_Relu_Dropout_FC(data)
-
-
-
-    mlp_dropout = models.MLP_256_Relu_Dropout_256_Relu(data)
-    mlp = models.MLP_256_Relu_256_Relu(data)
 
 
 

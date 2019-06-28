@@ -208,7 +208,7 @@ class Models:
                               nn.ReLU(),
                               CNN_TO_LSTM(),
                               nn.BatchNorm1d(input_sizes[1]),
-                              nn.LSTM(input_sizes[0] * 8 ,hidden_layer, batch_first=True),
+                              nn.LSTM(input_sizes[0] * 4 ,hidden_layer, batch_first=True),
                               LSTM_Out(),
                               nn.BatchNorm1d(hidden_layer),
                               nn.Dropout(),

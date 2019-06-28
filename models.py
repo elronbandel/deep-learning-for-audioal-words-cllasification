@@ -13,7 +13,7 @@ class CNN_TO_LSTM(nn.Module):
     def __init__(self):
         super(CNN_TO_LSTM, self).__init__()
     def forward(self, x):
-        x = x.permute(0,2,1,3).contiguous()
+        x = x.permute(0,3,1,2).contiguous()
         x = x.view(x.shape[0], x.shape[1], -1)
         return x
 class RNN_Out(nn.Module):
@@ -199,16 +199,16 @@ class Models:
 
     def CNN_LSTM256_FC512(self, data,  test_set = None):
         input_sizes, output_size, train_set, valid_set = data
-        hidden_layer = 512
-        model = nn.Sequential(nn.Conv2d(in_channels=1, out_channels=32, kernel_size=5, stride=1, padding=2),
+        hidden_layer = 64
+        model = nn.Sequential(nn.Conv2d(in_channels=1, out_channels=8, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
-                              nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, stride=1, padding=2),
+                              nn.Conv2d(in_channels=8, out_channels=8, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
                               CNN_TO_LSTM(),
-                              nn.BatchNorm1d(input_sizes[0]),
-                              nn.LSTM(input_sizes[1] * 32 ,hidden_layer, batch_first=True),
+                              nn.BatchNorm1d(input_sizes[1]),
+                              nn.LSTM(input_sizes[0] * 8 ,hidden_layer, batch_first=True),
                               LSTM_Out(),
                               nn.BatchNorm1d(hidden_layer),
                               nn.Dropout(),
@@ -219,6 +219,6 @@ class Models:
                               #nn.BatchNorm1d(output_size),
                               nn.LogSoftmax(dim=1)).cuda()
         network = ANN("LSTM_H512_FC256", model , cuda=True)
-        network.train(train_set, epochs=60, batch_size=10, criterion=nn.NLLLoss(),
+        network.train(train_set, epochs=60, batch_size=50, criterion=nn.NLLLoss(),
                       optimizer=optim.Adam(model.parameters(), weight_decay=1e-6), valid_set=valid_set)
         return network

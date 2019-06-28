@@ -203,7 +203,7 @@ class Models:
         model = nn.Sequential(nn.Conv2d(in_channels=1, out_channels=4, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
-                              nn.Conv2d(in_channels=8, out_channels=4, kernel_size=5, stride=1, padding=2),
+                              nn.Conv2d(in_channels=4, out_channels=4, kernel_size=5, stride=1, padding=2),
                               #nn.BatchNorm2d(16),
                               nn.ReLU(),
                               CNN_TO_LSTM(),

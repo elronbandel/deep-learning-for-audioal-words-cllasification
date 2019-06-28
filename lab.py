@@ -37,7 +37,7 @@ def main():
     data = get_data()
 
     #train all the models
-    models.DNN(data)
+    models.CNN_LSTM256_FC512(data)
 
 
 

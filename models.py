@@ -8,12 +8,21 @@ class Flatten(nn.Module):
         super(Flatten, self).__init__()
     def forward(self, x):
         return x.view(x.size()[0], -1)
+
+class CNN_TO_LSTM(nn.Module):
+    def __init__(self):
+        super(CNN_TO_LSTM, self).__init__()
+    def forward(self, x):
+        x = x.permute(0,2,1,3).contiguous()
+        x = x.view(x.shape[0], x.shape[1], -1)
+        return x
 class RNN_Out(nn.Module):
     def __init__(self):
         super(RNN_Out, self).__init__()
     def forward(self, input):
         outputs , output = input
         return torch.squeeze(output)
+
 class LSTM_Out(nn.Module):
     def __init__(self):
         super(LSTM_Out, self).__init__()
@@ -174,6 +183,32 @@ class Models:
                               SwappSampleAxes(),
                               nn.BatchNorm1d(input_sizes[1]),
                               nn.LSTM(input_sizes[0],hidden_layer, batch_first=True),
+                              LSTM_Out(),
+                              nn.BatchNorm1d(hidden_layer),
+                              nn.Dropout(),
+                              nn.Linear(hidden_layer, 256),
+                              nn.ReLU(),
+                              nn.Dropout(),
+                              nn.Linear(256, output_size),
+                              #nn.BatchNorm1d(output_size),
+                              nn.LogSoftmax(dim=1)).cuda()
+        network = ANN("LSTM_H512_FC256", model , cuda=True)
+        network.train(train_set, epochs=60, batch_size=10, criterion=nn.NLLLoss(),
+                      optimizer=optim.Adam(model.parameters(), weight_decay=1e-6), valid_set=valid_set)
+        return network
+
+    def CNN_LSTM256_FC512(self, data,  test_set = None):
+        input_sizes, output_size, train_set, valid_set = data
+        hidden_layer = 512
+        model = nn.Sequential(nn.Conv2d(in_channels=1, out_channels=32, kernel_size=5, stride=1, padding=2),
+                              #nn.BatchNorm2d(16),
+                              nn.ReLU(),
+                              nn.Conv2d(in_channels=32, out_channels=32, kernel_size=5, stride=1, padding=2),
+                              #nn.BatchNorm2d(16),
+                              nn.ReLU(),
+                              CNN_TO_LSTM(),
+                              nn.BatchNorm1d(input_sizes[0]),
+                              nn.LSTM(input_sizes[1] * 32 ,hidden_layer, batch_first=True),
                               LSTM_Out(),
                               nn.BatchNorm1d(hidden_layer),
                               nn.Dropout(),
